@@ -1,1 +1,9 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="ApiGameVr.API/ApiGameVr.API.csproj" />
+    <Project Path="ApiGameVr.Application/ApiGameVr.Application.csproj" />
+    <Project Path="ApiGameVr.Domain/ApiGameVr.Domain.csproj" />
+    <Project Path="ApiGameVr.Infrastructure/ApiGameVr.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
