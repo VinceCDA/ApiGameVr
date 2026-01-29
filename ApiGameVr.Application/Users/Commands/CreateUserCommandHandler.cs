@@ -1,0 +1,25 @@
+﻿using ApiGameVr.Application.Interfaces.Repositories;
+using ApiGameVr.Domain.Entities;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ApiGameVr.Application.Users.Commands
+{
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
+    {
+        private readonly IUserRepository _userRepository;
+        public CreateUserCommandHandler(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
+        public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        {
+            var user = new User { Email = request.Email,Pseudo = request.Pseudo};
+            await _userRepository.AddAsync(user);
+            return 1;
+        }
+    }
+}

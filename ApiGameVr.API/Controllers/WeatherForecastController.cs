@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGameVr.API.Controllers
@@ -10,6 +11,11 @@ namespace ApiGameVr.API.Controllers
         [
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         ];
+        private readonly IMediator _mediator;
+        public WeatherForecastController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()

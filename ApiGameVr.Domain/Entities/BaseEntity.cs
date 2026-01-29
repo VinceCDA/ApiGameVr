@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ApiGameVr.Domain.Entities
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get;private set; }
+        public DateTime ModifiedAt { get; set; }
         public BaseEntity()
         {
             this.ModifiedAt = DateTime.Now;
