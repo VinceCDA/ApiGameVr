@@ -1,5 +1,5 @@
-﻿using ApiGameVr.Application.Users.Commands;
-using ApiGameVr.Application.Users.Query;
+﻿using ApiGameVr.Application.Features.Users.Commands;
+using ApiGameVr.Application.Features.Users.Query;
 using ApiGameVr.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

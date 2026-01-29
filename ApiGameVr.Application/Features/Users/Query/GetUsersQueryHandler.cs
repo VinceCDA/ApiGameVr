@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApiGameVr.Application.Users.Query
+namespace ApiGameVr.Application.Features.Users.Query
 {
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IReadOnlyList<User>>
     {
