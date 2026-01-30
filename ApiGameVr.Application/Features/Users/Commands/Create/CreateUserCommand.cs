@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApiGameVr.Application.Features.Users.Commands
+namespace ApiGameVr.Application.Features.Users.Commands.Create
 {
     public class CreateUserCommand : IRequest<int>
     {

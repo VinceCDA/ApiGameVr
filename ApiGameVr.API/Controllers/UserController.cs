@@ -1,4 +1,5 @@
-﻿using ApiGameVr.Application.Features.Users.Commands;
+﻿using ApiGameVr.Application.Features.Users.Commands.Create;
+using ApiGameVr.Application.Features.Users.Commands.Delete;
 using ApiGameVr.Application.Features.Users.Query;
 using ApiGameVr.Domain.Entities;
 using MediatR;
@@ -16,7 +17,15 @@ namespace ApiGameVr.API.Controllers
             _mediator = mediator;
         }
         [HttpPost]
-        public async Task<ActionResult> Post(CreateUserCommand command)
+        [Route("create")]
+        public async Task<ActionResult> Create(CreateUserCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return Ok(response);
+        }
+        [HttpPost]
+        [Route("delete")]
+        public async Task<ActionResult>Delete(DeleteUserCommand command)
         {
             var response = await _mediator.Send(command);
             return Ok(response);

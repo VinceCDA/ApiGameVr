@@ -21,18 +21,25 @@ namespace ApiGameVr.Infrastructure.Data
             return entity;
         }
 
-        public Task DeleteAsync(User entity)
+        public async Task DeleteAsync(User entity)
         {
-            throw new NotImplementedException();
+            User user = await GetByIdAsync(entity.Id);
+            _context.Remove(user);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyList<User>> GetAllAsync()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.TestUsers.ToListAsync();
         }
 
-        public Task<User> GetByIdAsync(Guid id)
+        public async Task<User> GetByIdAsync(Guid id)
         {
+            User? user = await _context.TestUsers.FirstOrDefaultAsync(x => x.Id == id);
+            if (user != null)
+            {
+                return user;
+            }
             throw new NotImplementedException();
         }
 

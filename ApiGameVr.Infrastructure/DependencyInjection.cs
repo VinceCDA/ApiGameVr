@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using ApiGameVr.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using ApiGameVr.Application.Interfaces.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace ApiGameVr.Infrastructure
 {
