@@ -1,5 +1,4 @@
-﻿using ApiGameVr.Application.Features.Users.Commands.Create;
-using ApiGameVr.Application.Interfaces.Repositories;
+﻿using ApiGameVr.Application.Interfaces.Repositories;
 using ApiGameVr.Domain.Entities;
 using MediatR;
 using System;
