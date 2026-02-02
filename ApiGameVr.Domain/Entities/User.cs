@@ -8,8 +8,15 @@ namespace ApiGameVr.Domain.Entities
     public class User : BaseEntity
     {
         [Required]
-        public required string Email { get; set; }
+        [EmailAddress]
+        public string Email { get; private set; }
         [Required]
-        public required string Pseudo {  get; set; }
+        public string Pseudo {  get; private set; }
+
+        public User(string email, string pseudo) : base()
+        {
+            Email = email;
+            Pseudo = pseudo;
+        }
     }
 }
