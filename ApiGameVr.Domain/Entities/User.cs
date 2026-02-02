@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiGameVr.Domain.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -15,6 +16,10 @@ namespace ApiGameVr.Domain.Entities
 
         public User(string email, string pseudo) : base()
         {
+            if (!EmailValidation.IsValidEmailWithIdn(email))
+            {
+                throw new ArgumentException("invalid email");
+            }
             Email = email;
             Pseudo = pseudo;
         }
