@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ApiGameVr.Application.Features.Users.Commands.Create
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, string>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Unit>
     {
         private readonly IUserRepository _userRepository;
         public CreateUserCommandHandler(IUserRepository userRepository)
@@ -15,17 +15,17 @@ namespace ApiGameVr.Application.Features.Users.Commands.Create
             _userRepository = userRepository;
         }
 
-        public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             try
             {
                 var user = new User(request.Email, request.Pseudo);
                 await _userRepository.AddAsync(user);
-                return "user created";
+                return Unit.Value;
             }
             catch (Exception e)
             {
-                return "creation failed";
+                return Unit.Value;
             }
             
         }
