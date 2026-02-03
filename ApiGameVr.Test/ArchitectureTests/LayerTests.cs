@@ -1,7 +1,10 @@
-﻿using NetArchTest.Rules;
+﻿using ApiGameVr.Application.Features.Users.Commands.Create;
+using NetArchTest.Rules;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Json;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ApiGameVr.Test.ArchitectureTests
 {
