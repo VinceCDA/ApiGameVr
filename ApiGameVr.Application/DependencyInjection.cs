@@ -1,4 +1,5 @@
-﻿using ApiGameVr.Application.Interfaces.Logging;
+﻿using ApiGameVr.Application.Behavior;
+using ApiGameVr.Application.Interfaces.Logging;
 using ApiGameVr.Application.Logging;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
