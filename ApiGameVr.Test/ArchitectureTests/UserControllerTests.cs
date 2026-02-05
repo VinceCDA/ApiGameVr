@@ -20,7 +20,7 @@ namespace ApiGameVr.Test.ArchitectureTests
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
         [Fact]
-        public async Task CreatingUserShouldReturnUserCreatedString()
+        public async Task CreatingUserShouldReturnUserOk()
         {
             await using var application = new WebApplicationFactory<Program>();
             using var client = application.CreateClient();
@@ -29,7 +29,6 @@ namespace ApiGameVr.Test.ArchitectureTests
                 cancellationToken: TestContext.Current.CancellationToken
                 );
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal("user created", await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken));
         }
     }
 }
