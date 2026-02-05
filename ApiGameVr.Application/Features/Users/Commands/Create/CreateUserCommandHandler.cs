@@ -17,17 +17,9 @@ namespace ApiGameVr.Application.Features.Users.Commands.Create
 
         public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
                 var user = new User(request.Email, request.Pseudo);
                 await _userRepository.AddAsync(user);
                 return Unit.Value;
-            }
-            catch (Exception e)
-            {
-                return Unit.Value;
-            }
-            
         }
     }
 }
