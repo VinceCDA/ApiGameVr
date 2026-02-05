@@ -15,6 +15,7 @@ namespace ApiGameVr.Infrastructure
         )
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("UserTest"));
+            services.AddDbContext<AdminUserDbContext>(options => options.UseInMemoryDatabase("AdminUserTest"));
             services.AddScoped<IUserRepository,UserRepository>();
             return services;
         }
