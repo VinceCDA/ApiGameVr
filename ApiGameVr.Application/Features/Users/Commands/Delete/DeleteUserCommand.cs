@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ApiGameVr.Application.Features.Users.Commands.Delete
 {
-    public class DeleteUserCommand : IRequest<Unit>
+    public record DeleteUserCommand : IRequest<Unit>
     {
         public Guid Id { get; set; }
     }

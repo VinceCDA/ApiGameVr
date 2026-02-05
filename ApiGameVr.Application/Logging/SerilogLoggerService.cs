@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using ApiGameVr.Application.Interfaces.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Text;

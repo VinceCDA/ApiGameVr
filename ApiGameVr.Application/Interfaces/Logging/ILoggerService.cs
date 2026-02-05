@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApiGameVr.Application.Logging
+namespace ApiGameVr.Application.Interfaces.Logging
 {
     public interface ILoggerService
     {

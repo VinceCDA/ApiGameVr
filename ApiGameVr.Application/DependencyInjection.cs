@@ -1,4 +1,5 @@
-﻿using ApiGameVr.Application.Logging;
+﻿using ApiGameVr.Application.Interfaces.Logging;
+using ApiGameVr.Application.Logging;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging.Configuration;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace ApiGameVr.Application
@@ -14,7 +16,7 @@ namespace ApiGameVr.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            var assembly = typeof(DependencyInjection).Assembly;
+            Assembly assembly = typeof(DependencyInjection).Assembly;
             Log.Logger = SerilogConfigurator.Configure();
             services.AddSingleton<ILoggerService, SerilogLoggerService>();
             services.AddLogging(loggingBuilder =>
