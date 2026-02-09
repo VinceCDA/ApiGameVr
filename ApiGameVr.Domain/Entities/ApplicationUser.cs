@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApiGameVr.Domain.Entities
 {
-    public class User : BaseEntity
+    public class ApplicationUser : BaseEntity
     {
         [Required]
         [EmailAddress]
@@ -14,7 +14,7 @@ namespace ApiGameVr.Domain.Entities
         [Required]
         public string Pseudo {  get; private set; }
 
-        public User(string email, string pseudo) : base()
+        public ApplicationUser(string email, string pseudo) : base()
         {
             if (!EmailValidation.IsValidEmailWithIdn(email))
             {

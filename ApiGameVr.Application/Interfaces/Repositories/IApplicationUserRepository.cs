@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ApiGameVr.Application.Interfaces.Repositories
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IApplicationUserRepository : IRepository<ApplicationUser>
     {
     }
 }

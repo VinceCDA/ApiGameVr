@@ -1,4 +1,5 @@
 ﻿using ApiGameVr.Application.Features.Users.Commands.Create;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,18 @@ namespace ApiGameVr.Test
             await using var application = new WebApplicationFactory<Program>();
             using var client = application.CreateClient();
             var requestData = new { email = "test3@test.fr", password = "Azerty12345!" };
-            var response = await client.PostAsJsonAsync("/admin/register",
+            HttpResponseMessage response = await client.PostAsJsonAsync("/admin/create",
                 requestData,
                 cancellationToken: TestContext.Current.CancellationToken
                 );
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            await using var application2 = new WebApplicationFactory<Program>();
-            using var client2 = application2.CreateClient();
-            var response2 = await client.PostAsJsonAsync("/admin/login",
-                requestData,
-                cancellationToken: TestContext.Current.CancellationToken
-                );
-            Assert.Equal(HttpStatusCode.OK, response2.StatusCode);
+            //await using var application2 = new WebApplicationFactory<Program>();
+            //using var client2 = application2.CreateClient();
+            //var response2 = await client.PostAsJsonAsync("/admin/login",
+            //    requestData,
+            //    cancellationToken: TestContext.Current.CancellationToken
+            //    );
+            //Assert.Equal(HttpStatusCode.OK, response2.StatusCode);
         }
     }
 }

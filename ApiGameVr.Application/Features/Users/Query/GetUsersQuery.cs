@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApiGameVr.Application.Features.Users.Query
 {
-    public record GetUsersQuery : IRequest<IReadOnlyList<User>>
+    public record GetUsersQuery : IRequest<IReadOnlyList<ApplicationUser>>
     {
     }
 }

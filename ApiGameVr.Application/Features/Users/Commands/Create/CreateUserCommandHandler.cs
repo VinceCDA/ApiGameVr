@@ -9,15 +9,15 @@ namespace ApiGameVr.Application.Features.Users.Commands.Create
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Unit>
     {
-        private readonly IUserRepository _userRepository;
-        public CreateUserCommandHandler(IUserRepository userRepository)
+        private readonly IApplicationUserRepository _userRepository;
+        public CreateUserCommandHandler(IApplicationUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
         public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-                var user = new User(request.Email, request.Pseudo);
+                var user = new ApplicationUser(request.Email, request.Pseudo);
                 await _userRepository.AddAsync(user);
                 return Unit.Value;
         }

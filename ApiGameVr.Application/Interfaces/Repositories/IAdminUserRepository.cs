@@ -1,15 +1,12 @@
-﻿using System;
+﻿using ApiGameVr.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ApiGameVr.Application.Interfaces.Repositories
 {
-    public interface IAdminUserRepository<T> where T : class
+    public interface IAdminUserRepository :IRepository<AdminUser>
     {
-        Task<T> GetByIdAsync(Guid id);
-        Task<IReadOnlyList<T>> GetAllAsync();
-        Task<T> AddAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        public Task<AdminUser> CreateAsync(AdminUser adminUser,string password);
     }
 }

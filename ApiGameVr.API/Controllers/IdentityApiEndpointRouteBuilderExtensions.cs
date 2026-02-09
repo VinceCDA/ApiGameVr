@@ -84,6 +84,7 @@ public static class IdentityApiEndpointRouteBuilderExtensions
                 return CreateValidationProblem(result);
             }
             loggerService.LogInfo("New identity user created !");
+            var token = await userManager.GenerateTwoFactorTokenAsync(user, "Email");
             await SendConfirmationEmailAsync(user, userManager, context, email);
             return TypedResults.Ok();
         });

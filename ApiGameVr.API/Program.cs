@@ -8,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAuthorization();
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-    .AddEntityFrameworkStores<AdminUserDbContext>();
+//builder.Services.AddIdentityApiEndpoints<IdentityAdminUser>()
+//    .AddEntityFrameworkStores<AdminUserDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 app.UseHttpsRedirection();
-app.CustomMapIdentityApi<IdentityUser>();
+//app.CustomMapIdentityApi<IdentityAdminUser>();
 app.UseAuthorization();
 
 app.MapControllers();

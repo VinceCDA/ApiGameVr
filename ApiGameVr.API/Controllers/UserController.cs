@@ -43,9 +43,9 @@ namespace ApiGameVr.API.Controllers
             return Ok(response);
         }
         [HttpGet]
-        public async Task<IReadOnlyList<User>> Get()
+        public async Task<IReadOnlyList<ApplicationUser>> Get()
         {
-            IReadOnlyList<User> users = await _mediator.Send(new GetUsersQuery());
+            IReadOnlyList<ApplicationUser> users = await _mediator.Send(new GetUsersQuery());
             return users;
         }
     }

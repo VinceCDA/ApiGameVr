@@ -9,15 +9,15 @@ namespace ApiGameVr.Application.Features.Users.Commands.Delete
 {
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Unit>
     {
-        private readonly IUserRepository _userRepository;
-        public DeleteUserCommandHandler(IUserRepository userRepository)
+        private readonly IApplicationUserRepository _userRepository;
+        public DeleteUserCommandHandler(IApplicationUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
         public async Task<Unit> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            User user = await _userRepository.GetByIdAsync(request.Id);
+            ApplicationUser user = await _userRepository.GetByIdAsync(request.Id);
             await _userRepository.DeleteAsync(user);
             return Unit.Value;
         }

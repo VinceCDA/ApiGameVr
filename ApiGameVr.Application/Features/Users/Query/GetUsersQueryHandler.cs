@@ -7,14 +7,14 @@ using System.Text;
 
 namespace ApiGameVr.Application.Features.Users.Query
 {
-    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IReadOnlyList<User>>
+    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IReadOnlyList<ApplicationUser>>
     {
-        private readonly IUserRepository _userRepository;
-        public GetUsersQueryHandler(IUserRepository userRepository)
+        private readonly IApplicationUserRepository _userRepository;
+        public GetUsersQueryHandler(IApplicationUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
-        public async Task<IReadOnlyList<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<IReadOnlyList<ApplicationUser>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
             return await _userRepository.GetAllAsync();
         }

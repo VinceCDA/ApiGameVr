@@ -11,8 +11,8 @@ namespace ApiGameVr.Test.ArchitectureTests
 {
     public abstract class BaseTest
     {
-        protected static readonly Assembly DomainAssembly = typeof(User).Assembly;
-        protected static readonly Assembly ApplicationAssembly = typeof(IUserRepository).Assembly;
+        protected static readonly Assembly DomainAssembly = typeof(ApplicationUser).Assembly;
+        protected static readonly Assembly ApplicationAssembly = typeof(IApplicationUserRepository).Assembly;
         protected static readonly Assembly InfrastructureAssembly = typeof(UserRepository).Assembly;
         protected static readonly Assembly PresentationAssembly = typeof(Program).Assembly;
     }

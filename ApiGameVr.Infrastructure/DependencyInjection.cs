@@ -4,6 +4,8 @@ using ApiGameVr.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using ApiGameVr.Application.Interfaces.Repositories;
 using Microsoft.AspNetCore.Identity;
+using ApiGameVr.Infrastructure.Identity.Users;
+using ApiGameVr.Infrastructure.Identity.Context;
 
 namespace ApiGameVr.Infrastructure
 {
@@ -15,8 +17,10 @@ namespace ApiGameVr.Infrastructure
         )
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("UserTest"));
-            services.AddDbContext<AdminUserDbContext>(options => options.UseInMemoryDatabase("AdminUserTest"));
-            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddDbContext<AdminDbContext>(options => options.UseInMemoryDatabase("AdminUserTest"));
+            services.AddIdentityCore<IdentityAdminUser>().AddEntityFrameworkStores<AdminDbContext>();
+            services.AddScoped<IApplicationUserRepository,UserRepository>();
+            services.AddScoped<IAdminUserRepository,AdminUserRepository>();
             return services;
         }
     }
