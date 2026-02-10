@@ -13,7 +13,7 @@ namespace ApiGameVr.Infrastructure.Data
     public class UserRepository : IApplicationUserRepository
     {
         private readonly ApplicationDbContext _context;
-        public UserRepository(ApplicationDbContext context, UserManager<IdentityAdminUser> userManager)
+        public UserRepository(ApplicationDbContext context)
         {
             _context = context; 
         }

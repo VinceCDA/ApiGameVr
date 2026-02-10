@@ -1,6 +1,8 @@
 using ApiGameVr.Application;
 using ApiGameVr.Infrastructure;
 using ApiGameVr.Infrastructure.Data;
+using ApiGameVr.Infrastructure.Identity.Context;
+using ApiGameVr.Infrastructure.Identity.Users;
 using Microsoft.AspNetCore.Identity;
 using Scalar.AspNetCore;
 
@@ -9,7 +11,7 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAuthorization();
 //builder.Services.AddIdentityApiEndpoints<IdentityAdminUser>()
-//    .AddEntityFrameworkStores<AdminUserDbContext>();
+//    .AddEntityFrameworkStores<AdminDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -27,7 +29,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 app.UseHttpsRedirection();
-//app.CustomMapIdentityApi<IdentityAdminUser>();
+app.CustomMapIdentityApi<IdentityAdminUser>();
 app.UseAuthorization();
 
 app.MapControllers();

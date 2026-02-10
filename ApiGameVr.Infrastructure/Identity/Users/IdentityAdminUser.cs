@@ -8,6 +8,6 @@ namespace ApiGameVr.Infrastructure.Identity.Users
 {
     public class IdentityAdminUser : IdentityUser
     {
-        public required AdminUser User { get; set; }
+        public AdminUser User { get; set; }
     }
 }

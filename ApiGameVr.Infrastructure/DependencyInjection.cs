@@ -18,7 +18,8 @@ namespace ApiGameVr.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("UserTest"));
             services.AddDbContext<AdminDbContext>(options => options.UseInMemoryDatabase("AdminUserTest"));
-            services.AddIdentityCore<IdentityAdminUser>().AddEntityFrameworkStores<AdminDbContext>();
+            services.AddIdentityApiEndpoints<IdentityAdminUser>().AddEntityFrameworkStores<AdminDbContext>();
+            //services.AddIdentity<IdentityAdminUser, IdentityRole>().AddEntityFrameworkStores<AdminDbContext>();
             services.AddScoped<IApplicationUserRepository,UserRepository>();
             services.AddScoped<IAdminUserRepository,AdminUserRepository>();
             return services;
