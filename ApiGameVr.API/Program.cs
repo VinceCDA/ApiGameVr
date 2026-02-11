@@ -1,9 +1,6 @@
 using ApiGameVr.Application;
 using ApiGameVr.Infrastructure;
-using ApiGameVr.Infrastructure.Data;
-using ApiGameVr.Infrastructure.Identity.Context;
 using ApiGameVr.Infrastructure.Identity.Users;
-using Microsoft.AspNetCore.Identity;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,9 +16,18 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Replace with your frontend URL
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials(); // Only if using cookies/auth headers
+    });
+});
 var app = builder.Build();
-
+app.UseCors("AllowAll");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -30,8 +36,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.CustomMapIdentityApi<IdentityAdminUser>();
+
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().RequireCors("AllowAll");
 
 app.Run();
